@@ -11,11 +11,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import bz2
 import os
 import urllib.request
 import sys
 import subprocess
+import shutil
 
 class WikiDownloader:
     def __init__(self, language, save_path):
@@ -52,7 +52,11 @@ class WikiDownloader:
 
             # Always unzipping since this is relatively fast and will overwrite
             print('Unzipping:', self.output_files[self.language])
-            subprocess.run('bzip2 -dk ' + self.save_path + '/' + filename, shell=True, check=True)
+            if shutil.which('pbzip2') is not None:
+                bzip = "pbzip2"
+            else:
+                bzip = "bzip2"
+            subprocess.run(bzip + ' -dk ' + self.save_path + '/' + filename, shell=True, check=True)
 
         else:
             assert False, 'WikiDownloader not implemented for this language yet.'
