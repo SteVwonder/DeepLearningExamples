@@ -22,7 +22,7 @@ ENV HOME /workspace
 
 WORKDIR /workspace
 RUN git clone https://github.com/openai/gradient-checkpointing.git
-RUN git clone https://github.com/attardi/wikiextractor.git && cd wikiextractor && git checkout 6408a430fc504a38b04d37ce5e7fc740191dee16 && cd ..
+RUN git clone https://github.com/attardi/wikiextractor.git && cd wikiextractor && git checkout 6408a430fc504a38b04d37ce5e7fc740191dee16 && touch __init__.py && cd ..
 RUN git clone https://github.com/soskek/bookcorpus.git
 RUN git clone https://github.com/titipata/pubmed_parser
 
@@ -47,7 +47,7 @@ RUN pip3 install \
 WORKDIR /workspace/bert_tf2
 # Copy model into image - This can be overridden by mounting a volume to the same location.
 COPY . .
-ENV PYTHONPATH="/workspace/wikiextractor:/workspace/bert_tf2:${PYTHONPATH}"
+ENV PYTHONPATH="/workspace/:/workspace/bert_tf2:${PYTHONPATH}"
 
 #disable lazy compilatoin
 ENV TF_XLA_FLAGS="--tf_xla_enable_lazy_compilation=false"
