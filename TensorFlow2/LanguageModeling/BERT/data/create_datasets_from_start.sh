@@ -13,7 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-export BERT_PREP_WORKING_DIR=/workspace/bert_tf2/data
+BERT_PREP_WORKING_DIR=${BERT_PREP_WORKING_DIR:-/workspace/bert_tf2/data}
+export BERT_PREP_WORKING_DIR=$BERT_PREP_WORKING_DIR
 
 to_download=${1:-"all"}
 pretrained_to_download=${2:-"wiki_only"} # By default, we don't download BooksCorpus dataset due to recent issues with the host server
