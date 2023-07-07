@@ -32,7 +32,7 @@ dgxa100_8gpu_fp16 ()
   save_checkpoint_steps=100
   num_accumulation_steps_phase1=32
   num_accumulation_steps_phase2=96
-  echo $train_batch_size_phase1 $train_batch_size_phase2 $eval_batch_size $learning_rate_phase1 $learning_rate_phase2 $precision $use_xla $num_gpus $warmup_steps_phase1 $warmup_steps_phase2 $train_steps $save_checkpoint_steps $num_accumulation_steps_phase2
+  echo $train_batch_size_phase1 $train_batch_size_phase2 $eval_batch_size $learning_rate_phase1 $learning_rate_phase2 $precision $use_xla $num_gpus $warmup_steps_phase1 $warmup_steps_phase2 $train_steps $save_checkpoint_steps $num_accumulation_steps_phase1 $num_accumulation_steps_phase2
 }
 
 dgxa100_8gpu_tf32 ()
@@ -51,7 +51,7 @@ dgxa100_8gpu_tf32 ()
   save_checkpoint_steps=100
   num_accumulation_steps_phase1=64
   num_accumulation_steps_phase2=192
-  echo $train_batch_size_phase1 $train_batch_size_phase2 $eval_batch_size $learning_rate_phase1 $learning_rate_phase2 $precision $use_xla $num_gpus $warmup_steps_phase1 $warmup_steps_phase2 $train_steps $save_checkpoint_steps $num_accumulation_steps_phase2
+  echo $train_batch_size_phase1 $train_batch_size_phase2 $eval_batch_size $learning_rate_phase1 $learning_rate_phase2 $precision $use_xla $num_gpus $warmup_steps_phase1 $warmup_steps_phase2 $train_steps $save_checkpoint_steps $num_accumulation_steps_phase1 $num_accumulation_steps_phase2
 }
 
 # Full LAMB pretraining configs for NVIDIA DGX-2H (16x NVIDIA V100 32GB GPU)
@@ -72,7 +72,7 @@ dgx2_16gpu_fp16 ()
   save_checkpoint_steps=100
   num_accumulation_steps_phase1=64
   num_accumulation_steps_phase2=192
-  echo $train_batch_size_phase1 $train_batch_size_phase2 $eval_batch_size $learning_rate_phase1 $learning_rate_phase2 $precision $use_xla $num_gpus $warmup_steps_phase1 $warmup_steps_phase2 $train_steps $save_checkpoint_steps $num_accumulation_steps_phase2
+  echo $train_batch_size_phase1 $train_batch_size_phase2 $eval_batch_size $learning_rate_phase1 $learning_rate_phase2 $precision $use_xla $num_gpus $warmup_steps_phase1 $warmup_steps_phase2 $train_steps $save_checkpoint_steps $num_accumulation_steps_phase1 $num_accumulation_steps_phase2
 }
 
 dgx2_16gpu_fp32 ()
@@ -91,7 +91,7 @@ dgx2_16gpu_fp32 ()
   save_checkpoint_steps=100
   num_accumulation_steps_phase1=128
   num_accumulation_steps_phase2=320
-  echo $train_batch_size_phase1 $train_batch_size_phase2 $eval_batch_size $learning_rate_phase1 $learning_rate_phase2 $precision $use_xla $num_gpus $warmup_steps_phase1 $warmup_steps_phase2 $train_steps $save_checkpoint_steps $num_accumulation_steps_phase2
+  echo $train_batch_size_phase1 $train_batch_size_phase2 $eval_batch_size $learning_rate_phase1 $learning_rate_phase2 $precision $use_xla $num_gpus $warmup_steps_phase1 $warmup_steps_phase2 $train_steps $save_checkpoint_steps $num_accumulation_steps_phase1 $num_accumulation_steps_phase2
 }
 
 # Full LAMB pretraining configs for NVIDIA DGX-1 (8x NVIDIA V100 32GB GPU)
@@ -112,7 +112,7 @@ dgx1_8gpu_fp16 ()
   save_checkpoint_steps=100
   num_accumulation_steps_phase1=128
   num_accumulation_steps_phase2=384
-  echo $train_batch_size_phase1 $train_batch_size_phase2 $eval_batch_size $learning_rate_phase1 $learning_rate_phase2 $precision $use_xla $num_gpus $warmup_steps_phase1 $warmup_steps_phase2 $train_steps $save_checkpoint_steps $num_accumulation_steps_phase2
+  echo $train_batch_size_phase1 $train_batch_size_phase2 $eval_batch_size $learning_rate_phase1 $learning_rate_phase2 $precision $use_xla $num_gpus $warmup_steps_phase1 $warmup_steps_phase2 $train_steps $save_checkpoint_steps $num_accumulation_steps_phase1 $num_accumulation_steps_phase2
 }
 
 dgx1_8gpu_fp32 ()
@@ -131,5 +131,5 @@ dgx1_8gpu_fp32 ()
   save_checkpoint_steps=100
   num_accumulation_steps_phase1=256
   num_accumulation_steps_phase2=640
-  echo $train_batch_size_phase1 $train_batch_size_phase2 $eval_batch_size $learning_rate_phase1 $learning_rate_phase2 $precision $use_xla $num_gpus $warmup_steps_phase1 $warmup_steps_phase2 $train_steps $save_checkpoint_steps $num_accumulation_steps_phase2
+  echo $train_batch_size_phase1 $train_batch_size_phase2 $eval_batch_size $learning_rate_phase1 $learning_rate_phase2 $precision $use_xla $num_gpus $warmup_steps_phase1 $warmup_steps_phase2 $train_steps $save_checkpoint_steps $num_accumulation_steps_phase1 $num_accumulation_steps_phase2
 }
