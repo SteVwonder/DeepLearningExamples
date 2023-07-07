@@ -33,6 +33,7 @@ num_accumulation_steps_phase1=${13:-128}
 num_accumulation_steps_phase2=${14:-384}
 bert_model=${15:-"large"}
 
+SRC_DIR=${SRC_DIR:-/workspace/bert_tf2/}
 DATA_DIR=${DATA_DIR:-data}
 #Edit to save logs & checkpoints in a different directory
 RESULTS_DIR=${RESULTS_DIR:-/results}
@@ -86,7 +87,7 @@ mkdir -m 777 -p $RESULTS_DIR_PHASE2
 INPUT_FILES="$DATA_DIR/tfrecord/lower_case_1_seq_len_${seq_len}_max_pred_${max_pred_per_seq}_masked_lm_prob_0.15_random_seed_12345_dupe_factor_5_shard_1472_test_split_10/books_wiki_en_corpus/training/*"
 EVAL_FILES="$DATA_DIR/tfrecord/lower_case_1_seq_len_${seq_len}_max_pred_${max_pred_per_seq}_masked_lm_prob_0.15_random_seed_12345_dupe_factor_5_shard_1472_test_split_10/books_wiki_en_corpus/test"
 
-$mpi $BERT_MPI_ARGS python /workspace/bert_tf2/run_pretraining.py \
+$mpi $BERT_MPI_ARGS python ${SRC_DIR}/run_pretraining.py \
     --input_files=$INPUT_FILES \
     --init_checkpoint=$PHASE1_CKPT \
     --model_dir=$RESULTS_DIR_PHASE2 \

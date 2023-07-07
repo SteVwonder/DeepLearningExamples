@@ -33,6 +33,7 @@ num_accumulation_steps_phase1=${13:-128}
 num_accumulation_steps_phase2=${14:-384}
 bert_model=${15:-"large"}
 
+SRC_DIR=${SRC_DIR:-/workspace/bert_tf2/}
 DATA_DIR=${DATA_DIR:-data}
 #Edit to save logs & checkpoints in a different directory
 RESULTS_DIR=${RESULTS_DIR:-/results}
@@ -84,7 +85,7 @@ for DIR_or_file in $DATA_DIR $RESULTS_DIR_PHASE1 $BERT_CONFIG; do
   fi
 done
 
-$mpi $BERT_MPI_ARGS python /workspace/bert_tf2/run_pretraining.py \
+$mpi $BERT_MPI_ARGS python ${SRC_DIR}/run_pretraining.py \
      --input_files=$INPUT_FILES \
      --model_dir=$RESULTS_DIR_PHASE1 \
      --bert_config_file=$BERT_CONFIG \
