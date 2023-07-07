@@ -50,13 +50,15 @@ class WikiDownloader:
                 if status.returncode != 0:
                     raise RuntimeError('Wiki download not successful')
 
-            # Always unzipping since this is relatively fast and will overwrite
-            print('Unzipping:', self.output_files[self.language])
-            if shutil.which('pbzip2') is not None:
-                bzip = "pbzip2"
+            if os.path.isfile(os.path.join(self.save_path, filename.rstrip(".bz2"))):
+                print('** Decompressed file already exists, skipping decompression')
             else:
-                bzip = "bzip2"
-            subprocess.run(bzip + ' -dk ' + self.save_path + '/' + filename, shell=True, check=True)
+                print('Decompressing:', self.output_files[self.language])
+                if shutil.which('pbzip2') is not None:
+                    bzip = "pbzip2"
+                else:
+                    bzip = "bzip2"
+                subprocess.run(bzip + ' -dk ' + self.save_path + '/' + filename, shell=True, check=True)
 
         else:
             assert False, 'WikiDownloader not implemented for this language yet.'
